@@ -1,0 +1,68 @@
+scene1:
+  # Number of nodes of the trajectory
+  T: 15
+
+  # Time step between each node
+  dt: 0.05
+
+  # Initial configuration and velocity
+  INITIAL_CONFIG: [-0.6513877410293797, 1.3677075286603906, -0.17736737718858037, -0.3973375018143172, -0.11554961778792178, 1.2408486160482337, 8.644879755868687e-05]
+  INITIAL_VELOCITY:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+
+  # Target pose
+  TARGET_POSE:
+    orientation: [ 1, 0, 0, 0 ]
+    translation: [0.5,0.2,0.9]
+
+  # Weights
+  WEIGHT_uREG: 0.0001
+  WEIGHT_xREG: 0.1
+  WEIGHT_GRIPPER_POSE: 5
+  WEIGHT_GRIPPER_POSE_TERM: 100
+  WEIGHT_LIMIT: 0.1
+
+  # Safety threshold
+  SAFETY_THRESHOLD: 0.01
+
+
+  OBSTACLES:
+    obstacle1:
+        type: "box"
+        translation: [0.5, 0.0, 0.9]
+        orientation: [0.707,0, 0.707, 0]
+        dim: [0.2, 0.06, 0.4]
+    obstacle2:
+        type: "box"
+        translation: [0.5, 0.4, 0.9]
+        orientation: [0.707,0, 0.707, 0]
+        dim: [0.2, 0.06, 0.4]
+    obstacle3:
+        type: "box"
+        translation: [0.3, 0.2, 0.9]
+        orientation: [ 0.5, 0.5, -0.5, 0.5]
+        dim: [0.2, 0.06, 0.4]
+    obstacle4:
+        type: "box"
+        translation: [0.7, 0.2, 0.9]
+        orientation: [ 0.5, 0.5, -0.5, 0.5]
+        dim: [0.2, 0.06, 0.4]
+
+  collision_pairs:
+  - [obstacle1, panda_rightfinger_0]
+  - [obstacle2, panda_rightfinger_0]
+  - [obstacle3, panda_rightfinger_0]
+  - [obstacle4, panda_rightfinger_0]
+
+  - [obstacle1, panda_leftfinger_0]
+  - [obstacle2, panda_leftfinger_0]
+  - [obstacle3, panda_leftfinger_0]
+  - [obstacle4, panda_leftfinger_0]
+
+
